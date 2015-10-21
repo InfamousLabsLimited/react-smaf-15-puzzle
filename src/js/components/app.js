@@ -2,6 +2,8 @@ import React from 'react';
 import {shuffle, range} from 'lodash';
 import {Motion, spring} from 'react-motion';
 
+import smafActions from '../smafActions';
+
 var cellSize = 172;
 let cellMarginLeft = 4;
 let cellMarginTop = 4;
@@ -25,6 +27,7 @@ export default class APP extends React.Component {
         this.state = {
             positions: this.shufflePositions('modeEasy'),
             selectedIndex: 0,
+            remoteInfoText: '',
             win: false
         };
 
@@ -32,6 +35,20 @@ export default class APP extends React.Component {
         // You can specify/retrieve the token from within your 'http://www.smaf.tv' account
         // See here how: https://github.com/InfamousLabsLimited/react-smaf-15-puzzle#user-content-get-token
         this.props.Smaf.init('uM1FgARv99UOmWydUdMy0angrwsGOHH9');
+    }
+
+    componentDidMount() {
+        this.smafActionHandler = function (data) {
+            this.setState({remoteInfoText: JSON.stringify(data)});
+            if (smafActions[data.command] && data.type === 'keyDown') {
+                smafActions[data.command].call(this);
+            }
+        }.bind(this);
+        this.props.Smaf.on('action', this.smafActionHandler);
+    }
+
+    componentWillUnmount() {
+        this.props.Smaf.off('action', this.smafActionHandler);
     }
 
     updatePosition(index) {
@@ -61,6 +78,7 @@ export default class APP extends React.Component {
     }
 
     render() {
+        console.log(this.state.remoteInfoText);
         return (<div className="game" style={{width: (cellSize + 2 * cellMarginLeft) * 4, height: (cellSize + 2 * cellMarginTop) * 4}}>
             {this.state.positions.map((i, key)=> {
                 let cellId = this.state.win ? '' : key;
