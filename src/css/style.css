@@ -1,0 +1,50 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #dbdbdb;
+    font-family: Helvetica, sans-serif;
+    font-size: 24px;
+    color: #444;
+}
+
+.container, body, html {
+    height: 100%;
+}
+
+.game {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    margin-left: -360px;
+}
+
+.cell {
+    border-radius: 8px;
+    background: #fff;
+    color: white;
+    text-shadow: 0 0 6px black;
+    font-size: 30px;
+    font-weight: 400;
+    cursor: pointer;
+    transform: translateZ(0) scale(1);
+    position: absolute
+}
+
+.empty {
+    opacity: 0
+}
+
+.active {
+    text-shadow: 0 0 6px white, 0 0 6px black;
+    font-weight: 700;
+    background: darkorange;
+}
+
+.win {
+    color: green;
+    text-shadow: none;
+    position: absolute;
+    top: 60px;
+    width: 100%;
+    text-align: center;
+}
