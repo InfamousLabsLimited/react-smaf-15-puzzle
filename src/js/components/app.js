@@ -27,6 +27,11 @@ export default class APP extends React.Component {
             selectedIndex: 0,
             win: false
         };
+
+        // Initialize Smaf using the token specified for your app
+        // You can specify/retrieve the token from within your 'http://www.smaf.tv' account
+        // See here how: https://github.com/InfamousLabsLimited/react-smaf-15-puzzle#user-content-get-token
+        this.props.Smaf.init('uM1FgARv99UOmWydUdMy0angrwsGOHH9');
     }
 
     updatePosition(index) {
