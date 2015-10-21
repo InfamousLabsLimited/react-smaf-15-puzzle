@@ -112,6 +112,34 @@ export default class App extends React.Component {
                     }
                 </Motion>
             })}
+            <div style={{marginTop: 740, lineHeight: '180%', textAlign: 'left'}}>
+                <div>
+                    <span className="infoTitle">Move with:</span>
+                    <span className="btnGray">UP</span>&nbsp;
+                    <span className="btnGray">DOWN</span>&nbsp;
+                    <span className="btnGray">LEFT</span>&nbsp;
+                    <span className="btnGray">RIGHT</span>&nbsp;
+                    <span className="btnGray">ENTER</span>
+                </div>
+                <div>
+                    <span className="infoTitle">Replay with: </span>
+                    <span className="btnRed">RED</span>
+                    &nbsp;or&nbsp;<span className="btnGray">'a'</span> (for easy mode)
+                </div>
+                <div>
+                    <span className="infoTitle">&nbsp;</span>
+                    <span className="btnGreen">GREEN</span>
+                    &nbsp;or&nbsp;<span className="btnGray">'b'</span> (for normal mode)
+                </div>
+            </div>
+            <div style={{marginTop: 20,
+                        lineHeight: '140%',
+                        textAlign: 'left'}}>
+                {this.state.remoteInfoText
+                    ? <span><hr/>Data received from Smaf server (info on 'key' pressed):<br/> {this.state.remoteInfoText}</span>
+                    : null
+                }
+            </div>
         </div>)
     }
 }

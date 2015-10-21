@@ -46,3 +46,35 @@ body {
     padding: 0 20px;
     vertical-align: top;
 }
+
+span.btnGray {
+    background: #e1e1e1;
+    color: #0c0c0c;
+    padding: 0 10px;
+    margin: 0 5px;
+    border-radius: 9px;
+    vertical-align: top;
+}
+
+span.btnRed {
+    background: red;
+    color: white;
+    padding: 0 10px;
+    margin: 0 5px;
+    border-radius: 9px;
+    vertical-align: top;
+}
+
+span.btnGreen {
+    background: green;
+    color: white;
+    padding: 0 10px;
+    margin: 0 5px;
+    border-radius: 9px;
+    vertical-align: top;
+}
+
+span.infoTitle {
+    display: inline-block;
+    width: 150px;
+}
